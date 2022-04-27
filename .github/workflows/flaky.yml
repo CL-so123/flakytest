@@ -31,6 +31,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        run: mvn -pl . -Dtest=de.neemann.digital.core.memory.DataFieldConverterTest#testMarshalObj
+        run: git clone https://github.com/hneemann/Digital
+             cd Digital
+             git rev-parse HEAD
+             git checkout 6baef8b2bffacfa06075164d10385625d3d97d5b
+             mvn test-compile -pl . -am
+             mvn -pl . -Dtest=de.neemann.digital.core.memory.DataFieldConverterTest#testMarshalObj
              mvn -pl . edu.illinois:nondex-maven-plugin:1.1.2:nondex -Dtest=de.neemann.digital.core.memory.DataFieldConverterTest#testMarshalObj
           
